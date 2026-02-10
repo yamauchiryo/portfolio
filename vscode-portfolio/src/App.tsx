@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import {
   FILES,
   type FileId,
@@ -24,6 +24,7 @@ export default function App() {
   const [tabs, setTabs] = useState<FileId[]>(["README.md"]);
   const [paletteOpen, setPaletteOpen] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const [showIntro, setShowIntro] = useState(true);
 
   const fileList = useMemo(
     () => FILES.map((f) => ({ id: f.id, label: f.label })),
@@ -57,8 +58,26 @@ export default function App() {
     return () => window.removeEventListener("keydown", onKeyDown);
   }, []);
 
+  useEffect(() => {
+    if (!showIntro) return;
+    const timer = setTimeout(() => setShowIntro(false), 3000);
+    return () => clearTimeout(timer);
+  }, [showIntro]);
+
   return (
     <div className="h-screen w-screen bg-slate-50 text-slate-900">
+      {showIntro ? (
+        <div className="intro-overlay">
+          <div className="intro-card">
+            <div className="intro-icon">
+              <img src="assets/vscode.svg" alt="VS Code" className="intro-logo" />
+              <div className="intro-cursor" />
+              <span className="intro-click" />
+            </div>
+            <div className="intro-text">Welcome to my portfolio</div>
+          </div>
+        </div>
+      ) : null}
       <div className="h-10 bg-white border-b border-slate-200 flex items-center px-3 text-lg">
         <button
           className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded md:hidden hover:bg-slate-100"
@@ -220,7 +239,7 @@ function ReadmeView({ onOpen }: { onOpen: (id: FileId) => void }) {
           <div className="flex flex-wrap items-center gap-4">
             <div className="h-32 w-32 rounded-3xl border border-slate-200 bg-white overflow-hidden">
               <img
-                src="/assets/face.jpg"
+                src="assets/face.jpg"
                 alt="Profile"
                 className="h-full w-full object-cover"
               />
@@ -251,7 +270,7 @@ function ReadmeView({ onOpen }: { onOpen: (id: FileId) => void }) {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/assets/si-logo.png" alt="社会知能研究室" className="h-4 w-4" />
+              <img src="assets/si-logo.png" alt="社会知能研究室" className="h-4 w-4" />
               社会知能研究室
             </a>
             <a
@@ -263,7 +282,7 @@ function ReadmeView({ onOpen }: { onOpen: (id: FileId) => void }) {
               target="_blank"
               rel="noreferrer"
             >
-              <img src="/assets/github.png" alt="GitHub" className="h-4 w-4" />
+              <img src="assets/github.png" alt="GitHub" className="h-4 w-4" />
               GitHub Portfolio
             </a>
             <a
@@ -443,22 +462,13 @@ function ResearchView() {
         <div className="text-lg text-slate-500">Diagram</div>
         <div className="mt-3 rounded-lg border border-slate-200 bg-white p-3">
           <img
-            src="/assets/sharedplans.png"
+            src="assets/sharedplans.png"
             alt="Shared Plans diagram"
             className="w-full max-h-[360px] rounded-md border border-slate-200 object-contain"
           />
         </div>
         <div className="mt-2 text-lg text-slate-500">研究の全体像を図で示しています。</div>
       </div>
-    </div>
-  );
-}
-
-function DiagramCard({ title, desc }: { title: string; desc: string }) {
-  return (
-    <div className={cx("rounded-lg border border-slate-200 bg-slate-50 p-3", hoverLift)}>
-      <div className="text-lg font-semibold">{title}</div>
-      <div className="mt-2 text-lg text-slate-600">{desc}</div>
     </div>
   );
 }

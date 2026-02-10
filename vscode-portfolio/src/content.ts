@@ -20,18 +20,18 @@ export const PROFILE = {
     "初めまして．山内瞭と申します．立命館大学院情報理工学研究科でLLMエージェントの研究を行っています．\nソフトウェアエンジニアとしても活動しており，AI関連のプロジェクトに携わっています．",
   ],
   hobbies: [
-    { name: "ゴルフ", image: "/assets/hobbies/golf.jpg" },
+    { name: "ゴルフ", image: "assets/hobbies/golf.jpg" },
     { name: "マラソン" },
     { name: "海外旅行" },
   ],
   skills: [
-    { name: "Python", image: "/assets/skills/python.svg" },
-    { name: "React", image: "/assets/skills/react.svg" },
-    { name: "MySQL", image: "/assets/skills/mysql.svg" },
-    { name: "CSS", image: "/assets/skills/css3.svg" },
-    { name: "HTML", image: "/assets/skills/html5.svg" },
-    { name: "FastAPI", image: "/assets/skills/fastapi.svg" },
-    { name: "Docker", image: "/assets/skills/docker.svg" },
+    { name: "Python", image: "assets/skills/python.svg" },
+    { name: "React", image: "assets/skills/react.svg" },
+    { name: "MySQL", image: "assets/skills/mysql.svg" },
+    { name: "CSS", image: "assets/skills/css3.svg" },
+    { name: "HTML", image: "assets/skills/html5.svg" },
+    { name: "FastAPI", image: "assets/skills/fastapi.svg" },
+    { name: "Docker", image: "assets/skills/docker.svg" },
   ],
   certifications: [
     "Python 3 エンジニア認定基礎試験",
@@ -57,7 +57,7 @@ export const PROJECTS: Project[] = [
   {
     title: "ShigaChat",
     tags: ["Team Project", "滋賀国際協会にて運用中"],
-    image: "/assets/shigachat.png",
+    image: "assets/shigachat.png",
     paragraphs: [
       "Shiga Chatは、滋賀国際協会の職員を対象とした多言語対応の限定公開Q&Aサービスです。",
       "研究室内の活動の一環で開発されました。活動終了後でも運用に至るまで実装をし、実際に滋賀国際協会内で運用中です。",
@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
   {
     title: "Diary Board",
     tags: ["Team Project"],
-    image: "/assets/図1.png",
+    image: "assets/図1.png",
     paragraphs: [
       "Diary Boardは、非自発的に来日した外国人児童が、日本の学校現場で孤立しないように設計された多言語対応の教育支援ツールです。",
       "研究室内の活動の一環で滋賀国際協会へ訪問し、課題をヒアリングする中でこのシステムを開発しました。",
